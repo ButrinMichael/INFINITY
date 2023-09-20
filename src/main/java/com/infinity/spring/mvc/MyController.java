@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MyController {
@@ -25,10 +26,10 @@ public class MyController {
 //    }
     
            @RequestMapping("/showDetails")
-    public String showVisitorDetails(HttpServletRequest request,Model model){
-        String visitorName = request.getParameter("visitorName");
-        visitorName = "Mr. " + visitorName;
-        model.addAttribute("nameAttribute", visitorName);
+    public String showVisitorDetails(@RequestParam("visitorName")String visName,Model model){
+       
+        visName = "Mr. " + visName;
+        model.addAttribute("nameAttribute", visName);
         
         
         
