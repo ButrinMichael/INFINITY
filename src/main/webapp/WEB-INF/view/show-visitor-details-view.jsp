@@ -10,7 +10,11 @@
     <br>
     <br>
     <br>
-    Name: ${param.visitorName}
+    <%--  Name: ${param.visitorName} --%>
+    
+    Name:${nameAttribute}
+    
+    
     </body>
     <center>  <a href="/infinity">to first page</a></center>
     
