@@ -12,7 +12,13 @@
     <br>
     <%--  Name: ${param.visitorName} --%>
     
-    Name:${nameAttribute}
+    Name: ${visitor.name}
+    <br>
+    <br>
+    Surname: ${visitor.surname}
+    <br>
+    <br>
+    Age: ${visitor.age}
     
     
     </body>

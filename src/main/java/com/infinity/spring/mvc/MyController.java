@@ -4,6 +4,7 @@ package com.infinity.spring.mvc;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,25 +17,18 @@ public class MyController {
      }
     
     @RequestMapping("/askDetails")
-    public String askVisitorDetails(){
+    public String askVisitorDetails(Model model){
+        model.addAttribute("visitor", new Visitor());
     return "ask-visitor-details-view";
     }
        
-//       @RequestMapping("/showDetails")
-//    public String showVisitorDetails(){
-//    return "show-visitor-details-view";
-//    }
     
            @RequestMapping("/showDetails")
-    public String showVisitorDetails(@RequestParam("visitorName")String visName,Model model){
-       
-        visName = "Mr. " + visName;
-        model.addAttribute("nameAttribute", visName);
-        
-        
-        
-        
-        
+    public String showVisitorDetails(@ModelAttribute("visitor")Visitor vis){
+       String name = vis.getName();
+       vis.setName("Mr/Ms. " + name);
+
+                
     return "show-visitor-details-view";
     }
 }
