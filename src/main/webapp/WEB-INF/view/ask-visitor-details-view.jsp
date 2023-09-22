@@ -38,6 +38,11 @@ p {text-align: center;}
         <br><br>
         Age <form:input path="age"/>
         <br><br>
+        Retirement type:
+        <br>
+        <form:checkboxes path="retirementType" items="${visitor.retirementTypeList}"/>
+        
+        <br><br>
         Country<form:select path="country">
             <form:options items="${visitor.countries}"/>
         </form:select>

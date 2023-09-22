@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!<!doctype html>
 <html>
     <body>
@@ -22,6 +23,14 @@
     <br>
     <br>
     Age: ${visitor.age}
+    <br>
+    <br>
+    Retirement(s):
+    <ul>
+        <c:forEach var="lang" items="${visitor.retirementType}">
+                   <li>${lang}</li>
+        </c:forEach>
+    </ul>
     <br>
     <br>
     Country: ${visitor.country} 
