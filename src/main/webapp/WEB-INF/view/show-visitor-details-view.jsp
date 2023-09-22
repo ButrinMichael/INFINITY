@@ -18,8 +18,13 @@
     Surname: ${visitor.surname}
     <br>
     <br>
+    Sex: ${visitor.sex}
+    <br>
+    <br>
     Age: ${visitor.age}
-    
+    <br>
+    <br>
+    Country: ${visitor.country} 
     
     </body>
     <center>  <a href="/infinity">to first page</a></center>

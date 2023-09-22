@@ -26,7 +26,8 @@ public class MyController {
            @RequestMapping("/showDetails")
     public String showVisitorDetails(@ModelAttribute("visitor")Visitor vis){
        String name = vis.getName();
-       vis.setName("Mr/Ms. " + name);
+       String title = vis.getTitle();
+       vis.setName(title + name);
 
                 
     return "show-visitor-details-view";

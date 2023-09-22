@@ -1,14 +1,34 @@
 
 package com.infinity.spring.mvc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Visitor {
     private String name;
     private String surname;
     private String sex;
     private String country;
+    private String title;
+    private Map<String,String> countries;
+            
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
     private int age;
 
     public Visitor() {
+        countries = new HashMap<>();
+        countries.put("UKR", "Ukraine");
+        countries.put("DE", "Deutschland");
+        countries.put("PL", "Poland");
+        countries.put("USA", "Unated States Of Amerika");
+                            
     }
 
     public String getName() {
@@ -51,9 +71,19 @@ public class Visitor {
         this.age = age;
     }
 
+    public Map<String, String> getCountries() {
+        return countries;
+    }
+
+    public void setCountries(Map<String, String> countries) {
+        this.countries = countries;
+    }
+
     @Override
     public String toString() {
-        return "Visitor{" + "name=" + name + ", surname=" + surname + ", sex=" + sex + ", country=" + country + ", age=" + age + '}';
+        return "Visitor{" + "name=" + name + ", surname=" + surname + ", sex=" + sex + ", country=" + country + ", title=" + title + ", age=" + age + '}';
     }
+
+
     
 }
