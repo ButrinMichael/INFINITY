@@ -4,6 +4,7 @@ package com.infinity.spring.mvc;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,10 @@ public class MyController {
     public String showVisitorDetails(@ModelAttribute("visitor")Visitor vis){
        String name = vis.getName();
        String title = vis.getTitle();
-       vis.setName(title + name);
+       vis.setName(title + StringUtils.capitalize(name));
+       
+       String surname = vis.getSurname();
+       vis.setSurname(StringUtils.capitalize(surname));
 
                 
     return "show-visitor-details-view";
