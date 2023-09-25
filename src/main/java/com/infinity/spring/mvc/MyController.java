@@ -36,21 +36,24 @@ public class MyController {
        String name = vis.getName();
        String title = vis.getTitle();
        
-       //default name if none will printet       
-        if (name.length()==0) {                   
+       //default name if none or spaces will printet       
+        if ((name.length()==0) || (name.trim().length()==0)) {                   
                    vis.setName(title + "Muster");
                } else
-        {vis.setName(title + StringUtils.capitalize(name));}
+        {vis.setName(title + StringUtils.capitalize(name.trim()));
+        }
        
         
 //capitalize surname
        String surname = vis.getSurname();
-       vis.setSurname(StringUtils.capitalize(surname));
+       
 
-       //default surname if none will printet
-           if (surname.length()==0) {                   
+       //default surname if none or spaces will printet
+           if ((surname.length()==0) || (surname.trim().length()==0)) {                   
                    vis.setSurname("Musterman");
-           }     
+           } else
+           {vis.setSurname(StringUtils.capitalize(surname.trim()));
+           }
                 
     return "show-visitor-details-view";
     }

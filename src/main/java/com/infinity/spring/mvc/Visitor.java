@@ -4,12 +4,15 @@ package com.infinity.spring.mvc;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 
 public class Visitor {
-    @NotBlank(message="Please type a Name")
+    
+    
     private String name;
-    @NotBlank(message="Please type a Surname")
+    
     private String surname;
     private String sex;
     private String country;
@@ -17,7 +20,9 @@ public class Visitor {
     private String title;
     private String[] retirementType;
     private Map<String,String> retirementTypeList;
-            
+    @Min(value = 0, message = "Age must be from 0 to 120")
+    @Max(value = 120, message = "Age must be from 0 to 120")
+    private int age;   
 
     public String getTitle() {
         return title;
@@ -26,7 +31,7 @@ public class Visitor {
     public void setTitle(String title) {
         this.title = title;
     }
-    private int age;
+   
 
     public Visitor() {
         countries = new HashMap<>();

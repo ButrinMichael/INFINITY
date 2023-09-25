@@ -28,10 +28,10 @@ p {text-align: center;}
             <form:option value="Prof." label ="Prof."/>
         </form:select>
         Name <form:input path="name"/>
-        <form:errors path="name"/>
+        
         <br><br>
         Surname <form:input path="surname"/>
-         <form:errors path="surname"/>
+         
         <br><br>
         Sex:
         <br>
@@ -40,6 +40,7 @@ p {text-align: center;}
         Nonbinary <form:radiobutton path="sex" value="Nonbinary"/>
         <br><br>
         Age <form:input path="age"/>
+        <form:errors path="age"/>
         <br><br>
         Retirement type:
         <br>
