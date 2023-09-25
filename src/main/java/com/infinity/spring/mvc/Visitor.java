@@ -4,9 +4,12 @@ package com.infinity.spring.mvc;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import javax.validation.constraints.NotBlank;
 
 public class Visitor {
+    @NotBlank(message="Please type a Name")
     private String name;
+    @NotBlank(message="Please type a Surname")
     private String surname;
     private String sex;
     private String country;

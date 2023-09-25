@@ -13,10 +13,7 @@
     <br>
     <%--  Name: ${param.visitorName} --%>
     
-    Name: ${visitor.name}
-    <br>
-    <br>
-    Surname: ${visitor.surname}
+    Full Name: ${visitor.name} ${visitor.surname}
     <br>
     <br>
     Sex: ${visitor.sex}

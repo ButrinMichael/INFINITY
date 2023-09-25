@@ -21,14 +21,17 @@ p {text-align: center;}
     <br>
         <form:form action ="showDetails" modelAttribute="visitor">
             Title <form:select path="title">
+            <form:option value="" label="None"/>
             <form:option value="Mr." label="Mr."/>
             <form:option value="Ms." label= "Ms."/>
             <form:option value="Dr." label ="Dr."/>
             <form:option value="Prof." label ="Prof."/>
         </form:select>
         Name <form:input path="name"/>
+        <form:errors path="name"/>
         <br><br>
         Surname <form:input path="surname"/>
+         <form:errors path="surname"/>
         <br><br>
         Sex:
         <br>
