@@ -43,7 +43,7 @@ public class Visitor {
         
         retirementTypeList = new HashMap<>();
         retirementTypeList.put("Privat", "Private");
-        retirementTypeList.put("State ", "State");
+        retirementTypeList.put("State", "State");
         retirementTypeList.put("Disability", "Disability");                    
     }
 

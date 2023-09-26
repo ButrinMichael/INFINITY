@@ -21,13 +21,17 @@ public class MyController {
     
     @RequestMapping("/askDetails")
     public String askVisitorDetails(Model model){
+
         model.addAttribute("visitor", new Visitor());
+        
     return "ask-visitor-details-view";
     }
        
     
            @RequestMapping("/showDetails")
-    public String showVisitorDetails(@Valid @ModelAttribute("visitor")Visitor vis, BindingResult bindingresult){
+           public String showVisitorDetails(@Valid @ModelAttribute("visitor")Visitor vis, BindingResult bindingresult){
+
+        
                if (bindingresult.hasErrors()) { // Errors validation true/false
                    return "ask-visitor-details-view";
                }else {
@@ -43,6 +47,9 @@ public class MyController {
         {vis.setName(title + StringUtils.capitalize(name.trim()));
         }
        
+        if(vis.getRetirementType().length==0){
+			vis.setRetirementType(new String []{"State"});
+		}
         
 //capitalize surname
        String surname = vis.getSurname();
@@ -57,5 +64,9 @@ public class MyController {
                 
     return "show-visitor-details-view";
     }
+               
+               
+               
+               
     }
 }

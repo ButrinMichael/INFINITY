@@ -29,7 +29,6 @@
         </c:forEach>
     </ul>
     <br>
-    <br>
     Country: ${visitor.country} 
     
     </body>

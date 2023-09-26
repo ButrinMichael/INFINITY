@@ -35,16 +35,16 @@ p {text-align: center;}
         <br><br>
         Sex:
         <br>
-        Men <form:radiobutton path="sex" value="Men"/>
-        Women <form:radiobutton path="sex" value="Women"/>
-        Nonbinary <form:radiobutton path="sex" value="Nonbinary"/>
+        Nonbinary <form:radiobutton checked="checked"  path="sex" value="Nonbinary" />
+        | Men <form:radiobutton path="sex" value="Men"/>
+        | Women <form:radiobutton path="sex" value="Women"/>
         <br><br>
         Age <form:input path="age"/>
         <form:errors path="age"/>
         <br><br>
         Retirement type:
         <br>
-        <form:checkboxes path="retirementType" items="${visitor.retirementTypeList}"/>
+        <form:checkboxes path="retirementType" items="${visitor.retirementTypeList}"  delimiter="|" />
         
         <br><br>
         Country<form:select path="country">
