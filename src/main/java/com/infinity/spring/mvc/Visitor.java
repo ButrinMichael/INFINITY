@@ -4,8 +4,10 @@ package com.infinity.spring.mvc;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Digits;
+
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.Range;
 
 
 public class Visitor {
@@ -20,9 +22,9 @@ public class Visitor {
     private String title;
     private String[] retirementType;
     private Map<String,String> retirementTypeList;
-    @Min(value = 0, message = "Age must be from 0 to 120")
-    @Max(value = 120, message = "Age must be from 0 to 120")
-    private int age;   
+
+    @Range(min=0, max=120, message = "Age must be from 0 to 120")
+     private int age;   
 
     public String getTitle() {
         return title;

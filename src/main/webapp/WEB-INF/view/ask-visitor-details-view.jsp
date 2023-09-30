@@ -39,7 +39,7 @@ p {text-align: center;}
         | Men <form:radiobutton path="sex" value="Men"/>
         | Women <form:radiobutton path="sex" value="Women"/>
         <br><br>
-        Age <form:input path="age"/>
+        Age <form:input path="age" type="number" /> <%-- only a number type--%>
         <form:errors path="age"/>
         <br><br>
         Retirement type:

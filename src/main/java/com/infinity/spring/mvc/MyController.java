@@ -1,4 +1,3 @@
-
 package com.infinity.spring.mvc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,58 +14,66 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MyController {
     
     @RequestMapping("/")
-    public String showFirstView(){
-    return "first-view";
-     }
+    public String showFirstView() {
+        return "first-view";
+    }
     
     @RequestMapping("/askDetails")
-    public String askVisitorDetails(Model model){
-
+    public String askVisitorDetails(Model model) {
+        
         model.addAttribute("visitor", new Visitor());
         
-    return "ask-visitor-details-view";
+        return "ask-visitor-details-view";
     }
-       
     
-           @RequestMapping("/showDetails")
-           public String showVisitorDetails(@Valid @ModelAttribute("visitor")Visitor vis, BindingResult bindingresult){
-
+    @RequestMapping("/showDetails")
+    public String showVisitorDetails(@Valid @ModelAttribute("visitor") Visitor vis, BindingResult bindingresult) {
         
-               if (bindingresult.hasErrors()) { // Errors validation true/false
-                   return "ask-visitor-details-view";
-               }else {
-               
-               
-       String name = vis.getName();
-       String title = vis.getTitle();
-       
-       //default name if none or spaces will printet       
-        if ((name.length()==0) || (name.trim().length()==0)) {                   
-                   vis.setName(title + "Muster");
-               } else
-        {vis.setName(title + StringUtils.capitalize(name.trim()));
+        if (bindingresult.hasErrors()) { // Errors validation true/false
+            return "ask-visitor-details-view";
+        } else {
+            
+            stateEditor(vis);
+            nameEditor(vis);
+            surnameEditor(vis);
+            
+            return "show-visitor-details-view";
         }
-       
-        if(vis.getRetirementType().length==0){
-			vis.setRetirementType(new String []{"State"});
-		}
         
-//capitalize surname
-       String surname = vis.getSurname();
-       
+    }
 
-       //default surname if none or spaces will printet
-           if ((surname.length()==0) || (surname.trim().length()==0)) {                   
-                   vis.setSurname("Musterman");
-           } else
-           {vis.setSurname(StringUtils.capitalize(surname.trim()));
-           }
-                
-    return "show-visitor-details-view";
+    
+   
+    
+    
+    
+    //State is a default value if choosen anything
+    public void stateEditor(Visitor vis) {
+        if (vis.getRetirementType().length == 0) {
+            vis.setRetirementType(new String[]{"State"});
+        }
     }
-               
-               
-               
-               
+
+//default name if none or spaces will printet  + capitalize name  
+    public void nameEditor(Visitor vis) {
+        String name = vis.getName();
+        String title = vis.getTitle();
+        if ((name.length() == 0) || (name.trim().length() == 0)) {
+            vis.setName(title + "Muster");
+        } else {
+            vis.setName(title + StringUtils.capitalize(name.trim()));
+        }
+        
     }
+
+    //default surname if none or spaces will printet + capitalize surname 
+    public void surnameEditor(Visitor vis) {
+        String surname = vis.getSurname();
+        if ((surname.length() == 0) || (surname.trim().length() == 0)) {
+            vis.setSurname("Musterman");
+        } else {
+            vis.setSurname(StringUtils.capitalize(surname.trim()));
+        }
+    }
+    
 }
