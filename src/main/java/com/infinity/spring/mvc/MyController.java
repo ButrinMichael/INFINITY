@@ -1,17 +1,32 @@
 package com.infinity.spring.mvc;
 
-import javax.servlet.http.HttpServletRequest;
+import com.infinity.spring.mvc.dao.SexDAO;
+import com.infinity.spring.mvc.entity.Sex;
+import java.util.List;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MyController {
+    
+    @Autowired
+    private SexDAO sexDAO;
+    
+     @RequestMapping("/valueControl")
+    public String ShowValueControl(Model model) {
+        List<Sex> allSexValue = sexDAO.getAllSex();
+        model.addAttribute("allSexValue",allSexValue);
+        return "value-control";
+    }
+    
+    
+    
     
     @RequestMapping("/")
     public String showFirstView() {

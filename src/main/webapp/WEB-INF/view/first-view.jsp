@@ -9,7 +9,7 @@ body {
 }
 p {text-align: center;}
 </style>
-    <p>This is projekt "INFINITY + 1"</p>
+    <p>This is projekt "INFINITY + 1"</p> <a href="valueControl">TO VALUE CONTROL</a>
     <br>
     <br>
     <br>
